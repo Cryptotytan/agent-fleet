@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #05050a;
+  --bg-secondary: #0a0a12;
+  --bg-card: rgba(10, 255, 150, 0.03);
+  --accent-green: #00ff87;
+  --accent-cyan: #00d4ff;
+  --accent-purple: #9b5de5;
+  --accent-orange: #ff6b35;
+  --text-primary: #e8eaf0;
+  --text-muted: #5a6380;
+  --border-glow: rgba(0, 255, 135, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #05050a; }
+::-webkit-scrollbar-thumb { background: rgba(0,255,135,0.2); border-radius: 2px; }
+
+.glow-card {
+  background: rgba(10, 255, 150, 0.03);
+  border: 1px solid rgba(0, 255, 135, 0.12);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glow-card:hover {
+  border-color: rgba(0, 255, 135, 0.28);
+  box-shadow: 0 0 24px rgba(0, 255, 135, 0.06);
+}
+.glow-card-active {
+  border-color: rgba(0, 255, 135, 0.35) !important;
+  box-shadow: 0 0 32px rgba(0, 255, 135, 0.1) !important;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,255,135,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0,255,135,0); }
+}
+@keyframes pulse-cyan {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,212,255,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0,212,255,0); }
+}
+@keyframes pulse-orange {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,107,53,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(255,107,53,0); }
+}
+
+.pulse-green { animation: pulse-green 2s infinite; background: #00ff87; border-radius: 50%; }
+.pulse-cyan  { animation: pulse-cyan  2s infinite; background: #00d4ff; border-radius: 50%; }
+.pulse-orange{ animation: pulse-orange 2s infinite; background: #ff6b35; border-radius: 50%; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.4s ease forwards; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 255, 135, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 135, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.neon-green { color: #00ff87; text-shadow: 0 0 12px rgba(0,255,135,0.5); }
+.neon-cyan  { color: #00d4ff; text-shadow: 0 0 12px rgba(0,212,255,0.5); }
+
+.badge-running { color: #00ff87; background: rgba(0,255,135,0.1);   border: 1px solid rgba(0,255,135,0.3); }
+.badge-paused  { color: #fbbf24; background: rgba(251,191,36,0.1);  border: 1px solid rgba(251,191,36,0.3); }
+.badge-idle    { color: #5a6380; background: rgba(90,99,128,0.1);   border: 1px solid rgba(90,99,128,0.2); }
+
+.btn-primary {
+  background: rgba(0, 255, 135, 0.1);
+  border: 1px solid rgba(0, 255, 135, 0.3);
+  color: #00ff87;
+  border-radius: 8px; padding: 8px 16px;
+  font-size: 12px; font-family: 'JetBrains Mono', monospace;
+  cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-primary:hover { background: rgba(0, 255, 135, 0.18); box-shadow: 0 0 16px rgba(0, 255, 135, 0.15); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-danger {
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  color: #ff6b35; border-radius: 8px; padding: 8px 16px;
+  font-size: 12px; font-family: 'JetBrains Mono', monospace;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.btn-danger:hover  { background: rgba(255, 107, 53, 0.18); }
+.btn-danger:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-cyan {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00d4ff; border-radius: 8px; padding: 8px 16px;
+  font-size: 12px; font-family: 'JetBrains Mono', monospace;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.btn-cyan:hover  { background: rgba(0, 212, 255, 0.18); }
+.btn-cyan:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.log-entry {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 0;
+  animation: fadeInUp 0.3s ease;
+}
+
+input.dark-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e8eaf0; border-radius: 8px; padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  outline: none; transition: border-color 0.2s;
+}
+input.dark-input:focus { border-color: rgba(0,255,135,0.3); }
