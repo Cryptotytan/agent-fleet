@@ -1,0 +1,23 @@
+{
+  "name": "Transaction",
+  "type": "object",
+  "properties": {
+    "agentId": { "type": "string" },
+    "agentName": { "type": "string" },
+    "agentType": { "type": "string" },
+    "action": { "type": "string" },
+    "signature": { "type": "string" },
+    "amount": { "type": "number" },
+    "toAddress": { "type": "string" },
+    "fromAddress": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "confirmed", "failed"],
+      "default": "pending"
+    },
+    "reason": { "type": "string" },
+    "balanceAfter": { "type": "number" },
+    "username": { "type": "string" }
+  },
+  "required": ["agentId", "agentName", "action"]
+}
