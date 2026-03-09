@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Layout from './Layout'
+import Layout from './Layout.jsx'
 import Agents from './pages/Agents'
 import Transactions from './pages/Transactions'
 import Volume from './pages/Volume'
