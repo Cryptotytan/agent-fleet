@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createPageUrl } from '@/utils';
+import { createPageUrl } from '../utils';
 import { Link } from 'react-router-dom';
 import { Cpu, BarChart2, History, BookOpen, Menu, X, LogOut } from 'lucide-react';
 
