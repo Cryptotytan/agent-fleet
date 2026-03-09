@@ -1,0 +1,31 @@
+{
+  "name": "Agent",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["TRADER", "LIQUIDITY", "MONITOR"]
+    },
+    "publicKey": { "type": "string" },
+    "encryptedSecret": {
+      "type": "array",
+      "items": { "type": "number" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["IDLE", "RUNNING", "PAUSED"],
+      "default": "IDLE"
+    },
+    "lastDecision": { "type": "string" },
+    "lastTxSig": { "type": "string" },
+    "lastActionTime": { "type": "string" },
+    "balanceHistory": {
+      "type": "array",
+      "items": { "type": "number" }
+    },
+    "intervalSeconds": { "type": "number", "default": 15 },
+    "username": { "type": "string" }
+  },
+  "required": ["name", "type", "publicKey", "encryptedSecret"]
+}
